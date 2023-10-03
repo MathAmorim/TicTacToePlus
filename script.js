@@ -43,15 +43,11 @@ function handleClick(casa) {
     if (!gameOver && !casa.getAttribute('data-player')) {
         casa.style.backgroundImage = currentPlayer === 'X' ? 'url(1.png)' : 'url(2.png)';
         casa.setAttribute('data-player', currentPlayer);
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-
         checkWinner();
+        if (!gameOver) {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
     }
-}
-
-// Função para reiniciar o jogo
-function refreshPage() {
-    location.reload();
 }
 
 // Adicione o evento de clique a todas as casas
